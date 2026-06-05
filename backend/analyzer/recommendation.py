@@ -5,19 +5,29 @@ def recommend(scan_data):
     if len(scan_data.get("gps", [])) > 0:
 
         recs.append(
+
             "Remove image metadata"
         )
 
     if len(scan_data.get("pan", [])) > 0:
 
         recs.append(
+
             "Encrypt sensitive documents"
         )
 
     if len(scan_data.get("emails", [])) > 5:
 
         recs.append(
+
             "Reduce exposed accounts"
+        )
+
+    if len(scan_data.get("phones", [])) > 0:
+
+        recs.append(
+
+            "Enable 2FA on linked accounts"
         )
 
     return recs

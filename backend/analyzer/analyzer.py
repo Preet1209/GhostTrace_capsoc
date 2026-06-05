@@ -6,7 +6,7 @@ from attack_engine import generate_attacks
 from recommendation import recommend
 
 
-with open("../../shared/scan.json") as f:
+with open("../../shared/scan.json", "r") as f:
 
     scan_data = json.load(f)
 
@@ -43,6 +43,4 @@ with open("../../shared/analysis.json", "w") as f:
     )
 
 
-print(
-    "analysis.json generated"
-)
+print("analysis.json generated")

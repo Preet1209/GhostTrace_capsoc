@@ -11,11 +11,24 @@ def generate_twin(scan_data):
     ) > 5
 
     twin["financial_activity"] = (
+
         "HIGH"
+
         if len(scan_data.get("pan", [])) > 0
+
         else "LOW"
     )
 
-    twin["profile"] = "General User"
+    if len(scan_data.get("documents", [])) > 5:
+
+        twin["profile"] = "Student / Professional"
+
+    elif len(scan_data.get("gps", [])) > 3:
+
+        twin["profile"] = "Frequent Traveler"
+
+    else:
+
+        twin["profile"] = "General User"
 
     return twin

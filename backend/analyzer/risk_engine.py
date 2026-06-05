@@ -2,26 +2,43 @@ def calculate_risk(scan_data):
 
     score = 0
 
-    score += len(scan_data.get("emails", [])) * 2
+    emails = scan_data.get("emails", [])
+    phones = scan_data.get("phones", [])
+    gps = scan_data.get("gps", [])
+    pan = scan_data.get("pan", [])
+    documents = scan_data.get("documents", [])
 
-    score += len(scan_data.get("phones", [])) * 3
+    photos = scan_data.get("photos", [])
 
-    score += len(scan_data.get("gps", [])) * 5
+    if isinstance(photos, int):
 
-    score += len(scan_data.get("pan", [])) * 10
+        photo_count = photos
 
-    score += len(scan_data.get("documents", []))
+    else:
 
-    score += scan_data.get("photos", 0) * 0.2
+        photo_count = len(photos)
+
+
+    score += len(emails) * 2
+    score += len(phones) * 3
+    score += len(gps) * 5
+    score += len(pan) * 10
+    score += len(documents) * 1
+    score += photo_count * 2
+
 
     if score > 80:
+
         level = "HIGH"
 
     elif score > 40:
+
         level = "MEDIUM"
 
     else:
+
         level = "LOW"
+
 
     return {
 
