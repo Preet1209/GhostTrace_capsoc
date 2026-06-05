@@ -1,35 +1,42 @@
 import json
-from pathlib import Path
 
 from risk_engine import calculate_risk
 from digital_twin import generate_twin
 from attack_engine import generate_attack_paths
 from recommendation import generate_recommendations
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+INPUT_PATH = "shared/scan.json"
+OUTPUT_PATH = "shared/analysis.json"
 
-SCAN_PATH = BASE_DIR / "shared" / "scan.json"
-OUTPUT_PATH = BASE_DIR / "shared" / "analysis.json"
 
-with open(SCAN_PATH, "r", encoding="utf-8") as f:
+with open(INPUT_PATH, "r", encoding="utf-8") as f:
     scan_data = json.load(f)
 
 risk = calculate_risk(scan_data)
+
 twin = generate_twin(scan_data)
+
 attacks = generate_attack_paths(scan_data)
+
 recs = generate_recommendations(scan_data)
+
+
+# ---------- Summary Stats ----------
 
 total_files = (
     len(scan_data.get("documents", []))
-    + scan_data.get("photos", 0)
+    + len(scan_data.get("photos", []))
 )
 
 total_findings = (
     len(scan_data.get("emails", []))
     + len(scan_data.get("phones", []))
     + len(scan_data.get("gps", []))
-    + len(scan_data.get("pan", []))
+    + len(scan_data.get("aadhaars", []))
+    + len(scan_data.get("urls", []))
 )
+
+# ---------- Final Output ----------
 
 final_output = {
     "summary": {
@@ -46,6 +53,7 @@ final_output = {
 
     "recommendations": recs
 }
+
 
 with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
     json.dump(final_output, f, indent=4)

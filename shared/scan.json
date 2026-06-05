@@ -1,8 +1,84 @@
 {
-  "emails": ["abc@gmail.com"],
-  "phones": ["9999999999"],
-  "gps": ["12,77"],
-  "pan": ["ABCDE1234F"],
-  "documents": ["resume.pdf"],
-  "photos": 20
+  "scan_path": "demo_data",
+
+  "emails": [
+    "john.doe@gmail.com"
+  ],
+
+  "phones": [
+    "6060520161",
+    "6060520202",
+    "+91 9876543210"
+  ],
+
+  "aadhaars": [
+    "1234 5678 9012"
+  ],
+
+  "urls": [
+    "https://secure-bank.example"
+  ],
+
+  "documents": [
+    "..\\demo_data\\customer.txt",
+    "..\\demo_data\\fake_profile (1).pdf",
+    "..\\demo_data\\fake_profile.pdf"
+  ],
+
+  "photos": [
+    "..\\demo_data\\screenshot.jpeg"
+  ],
+
+  "gps": [],
+
+  "cookies": [
+    {
+      "browser": "Edge",
+      "error": "[Errno 13] Permission denied"
+    },
+    {
+      "browser": "Chrome",
+      "error": "[Errno 13] Permission denied"
+    }
+  ],
+
+  "raw_findings": [
+
+    {
+      "source_file": "..\\demo_data\\customer.txt",
+      "kind": "email",
+      "value": "john.doe@gmail.com"
+    },
+
+    {
+      "source_file": "..\\demo_data\\customer.txt",
+      "kind": "phone",
+      "value": "+91 9876543210"
+    },
+
+    {
+      "source_file": "..\\demo_data\\customer.txt",
+      "kind": "aadhaar",
+      "value": "1234 5678 9012"
+    },
+
+    {
+      "source_file": "..\\demo_data\\customer.txt",
+      "kind": "url",
+      "value": "https://secure-bank.example"
+    },
+
+    {
+      "source_file": "..\\demo_data\\fake_profile (1).pdf",
+      "kind": "phone",
+      "value": "6060520202"
+    },
+
+    {
+      "source_file": "..\\demo_data\\fake_profile.pdf",
+      "kind": "phone",
+      "value": "6060520161"
+    }
+
+  ]
 }
