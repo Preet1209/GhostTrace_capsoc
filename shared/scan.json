@@ -1,0 +1,8 @@
+{
+  "emails": ["abc@gmail.com"],
+  "phones": ["9999999999"],
+  "gps": ["12,77"],
+  "pan": ["ABCDE1234F"],
+  "documents": ["resume.pdf"],
+  "photos": 20
+}

@@ -1,33 +1,17 @@
-def recommend(scan_data):
+def generate_recommendations(scan_data):
 
     recs = []
 
     if len(scan_data.get("gps", [])) > 0:
 
-        recs.append(
+        recs.append("Remove image metadata")
 
-            "Remove image metadata"
-        )
+    if len(scan_data.get("documents", [])) > 0:
 
-    if len(scan_data.get("pan", [])) > 0:
+        recs.append("Encrypt sensitive documents")
 
-        recs.append(
+    if len(scan_data.get("emails", [])) > 0:
 
-            "Encrypt sensitive documents"
-        )
-
-    if len(scan_data.get("emails", [])) > 5:
-
-        recs.append(
-
-            "Reduce exposed accounts"
-        )
-
-    if len(scan_data.get("phones", [])) > 0:
-
-        recs.append(
-
-            "Enable 2FA on linked accounts"
-        )
+        recs.append("Enable 2FA on linked accounts")
 
     return recs

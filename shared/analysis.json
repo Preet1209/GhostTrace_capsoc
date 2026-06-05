@@ -1,15 +1,20 @@
 {
-  "risk_score": 0,
-  "risk_level": "",
-
-  "digital_twin": {
-    "profile": "",
-    "traveler": false,
-    "financial_activity": "",
-    "student": false
-  },
-
-  "attack_paths": [],
-
-  "recommendations": []
+    "risk_score": 61,
+    "risk_level": "MEDIUM",
+    "digital_twin": {
+        "traveler": true,
+        "student": false,
+        "financial_activity": "HIGH",
+        "profile": "General User"
+    },
+    "attack_paths": [
+        "Account Recovery Risk",
+        "Identity Theft Risk",
+        "Location Profiling Risk"
+    ],
+    "recommendations": [
+        "Remove image metadata",
+        "Encrypt sensitive documents",
+        "Enable 2FA on linked accounts"
+    ]
 }
