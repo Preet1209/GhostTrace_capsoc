@@ -2,33 +2,38 @@ def generate_twin(scan_data):
 
     twin = {}
 
-    twin["traveler"] = len(
-        scan_data.get("gps", [])
-    ) > 0
+    gps = scan_data.get("gps", [])
+    docs = scan_data.get("documents", [])
+    photos = scan_data.get("photos", [])
+    tokens = scan_data.get("tokens", [])
+    aadhaars = scan_data.get("aadhaars", [])
 
-    twin["student"] = len(
-        scan_data.get("documents", [])
-    ) > 5
+    if isinstance(gps, int):
+        gps_count = gps
+    else:
+        gps_count = len(gps)
+
+    if isinstance(photos, int):
+        photo_count = photos
+    else:
+        photo_count = len(photos)
+
+    twin["traveler"] = gps_count > 0
+
+    twin["student"] = len(docs) > 2
 
     twin["financial_activity"] = (
-
         "HIGH"
-
-        if len(scan_data.get("pan", [])) > 0
-
+        if len(aadhaars) > 0
         else "LOW"
     )
 
-    if len(scan_data.get("documents", [])) > 5:
+    twin["profile"] = "General User"
 
-        twin["profile"] = "Student / Professional"
+    if len(tokens) > 3:
+        twin["profile"] = "Developer / Technical User"
 
-    elif len(scan_data.get("gps", [])) > 3:
-
-        twin["profile"] = "Frequent Traveler"
-
-    else:
-
-        twin["profile"] = "General User"
+    if photo_count > 0:
+        twin["profile"] = "Social / Active User"
 
     return twin

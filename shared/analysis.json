@@ -1,11 +1,15 @@
 {
-    "risk_score": 61,
+    "summary": {
+        "total_files": 21,
+        "total_findings": 4
+    },
+    "risk_score": 55,
     "risk_level": "MEDIUM",
     "digital_twin": {
         "traveler": true,
         "student": false,
-        "financial_activity": "HIGH",
-        "profile": "General User"
+        "financial_activity": "LOW",
+        "profile": "Social / Active User"
     },
     "attack_paths": [
         "Account Recovery Risk",
