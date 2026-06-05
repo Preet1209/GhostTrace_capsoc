@@ -3,7 +3,6 @@ from pathlib import Path
 
 import streamlit as st
 
-
 st.set_page_config(page_title="GhostTrace", page_icon="👻", layout="wide")
 
 st.markdown("""
@@ -418,6 +417,9 @@ if st.session_state.page == "Dashboard":
             elif kind in ["aadhar", "aadhaar", "aadhar number", "aadhaar number"]:
                 headline = f"🪪 Identity risk: {value} can support KYC impersonation or fraud."
                 chain = ["AADHAR", "KYC impersonation", "identity misuse", "fraud"]
+            elif kind in ["url", "website", "link", "domain", "web"]:
+                headline = f"🔗 URL exposure: {value} can enable page profiling or content scraping."
+                chain = ["URL", "page profiling", "metadata/content scraping", "identity or organization linking", "targeted abuse or fraud"]
             else:
                 headline = f"🕵️ OSINT risk: {value} can be linked across public sources."
                 chain = ["NAME", "profile matching", "trust abuse", "potential fraud"]
