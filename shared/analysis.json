@@ -1,0 +1,15 @@
+{
+  "risk_score": 0,
+  "risk_level": "",
+
+  "digital_twin": {
+    "profile": "",
+    "traveler": false,
+    "financial_activity": "",
+    "student": false
+  },
+
+  "attack_paths": [],
+
+  "recommendations": []
+}
